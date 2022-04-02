@@ -13,17 +13,19 @@ export default class Main extends React.PureComponent {
   };
 
   render() {
-    const { results = [] } = this.props;
+    const { results = [], setResults = () => {} } = this.props;
     const { selectedResult } = this.state;  
 
     return (
       <main>
-        {selectedResult === null ? <Results results={results} setSelectedResult={this.setSelectedResult} /> : <div></div>}
+        <Results results={results} setSelectedResult={this.setSelectedResult} setResults={setResults} />
+        <p>{selectedResult.name}</p>
       </main>
     );
   }
 }
 
 Main.propTypes = {
-  results: PropTypes.array
+  results: PropTypes.array,
+  setResults: PropTypes.func
 };

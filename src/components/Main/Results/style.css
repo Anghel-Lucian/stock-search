@@ -1,13 +1,14 @@
 #results {
   background-color: var(--color-main-light);
   flex: 1;
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: scroll;
   border-radius: 8px;
+  position: absolute;
+  width: 80%;
 }
 
 #results ul {
-  width: 400px;
   padding: 16px;
 }
 
@@ -25,11 +26,11 @@
 }
 
 #results ul li:first-child {
-  margin: none;
+  margin: 0px;
 }
 
 #results ul li:last-child {
-  margin: none;
+  margin: 0px;
 }
 
 #results ul li:hover {

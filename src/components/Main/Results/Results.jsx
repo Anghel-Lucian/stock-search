@@ -5,10 +5,11 @@ import "./style.css";
 
 export default class Results extends React.PureComponent {
   curriedSetSelectedResult(...args) {
-    const { setSelectedResult = () => {} } = this.props;
+    const { setSelectedResult = () => {}, setResults = () => {} } = this.props;
 
     return () => {
       setSelectedResult(...args);
+      setResults([]);
     };
   }
 
@@ -34,9 +35,7 @@ export default class Results extends React.PureComponent {
           <ul>
             {this.renderResults()}
           </ul>
-        ) : (
-          <p>Search for a company first...</p>
-        )}
+        ) : null}
       </div>
     );
   }
@@ -44,5 +43,6 @@ export default class Results extends React.PureComponent {
 
 Results.propTypes = {
   results: PropTypes.array,
-  setSelectedResult: PropTypes.func
+  setSelectedResult: PropTypes.func,
+  setResults: PropTypes.func
 };

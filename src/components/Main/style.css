@@ -3,5 +3,7 @@ main {
   padding: 15px;
   display: flex;
   max-height: 500px;
-  min-width: 300px;
+  min-width: 400px;
+  position: relative;
+  justify-content: center;
 }
