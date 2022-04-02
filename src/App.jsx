@@ -15,9 +15,12 @@ export default class App extends React.PureComponent {
 	};
 
 	render() {
+		const { results } = this.state;
+
 		return (
 			<div id="app">
 				<Components.Searchbar getCompanies={libs.getCompanies} setResults={this.setResults} />
+				<Components.Main results={results} />
 			</div>
 		);
 	}

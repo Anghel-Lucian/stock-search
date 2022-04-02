@@ -1,7 +1,9 @@
 import Searchbar from "./Searchbar";
+import Main from "./Main";
 
 const Components = {
-  Searchbar
+  Searchbar,
+  Main
 };
 
 export default Components;

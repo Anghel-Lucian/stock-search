@@ -1,0 +1,45 @@
+#results {
+  background-color: var(--color-main-light);
+  flex: 1;
+  max-height: 500px;
+  overflow-y: scroll;
+  border-radius: 8px;
+}
+
+#results ul {
+  width: 400px;
+  padding: 16px;
+}
+
+#results ul li {
+  margin: 8px 0px;
+  background-color: var(--color-medium);
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--color-main);
+  transition: background-color 0.2s;
+}
+
+#results ul li:first-child {
+  margin: none;
+}
+
+#results ul li:last-child {
+  margin: none;
+}
+
+#results ul li:hover {
+  cursor: pointer;
+  background-color: var(--color-light);
+}
+
+#results p {
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--color-light);
+  max-width: 100%;
+  padding: 15px;
+}
