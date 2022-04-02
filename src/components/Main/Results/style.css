@@ -37,7 +37,7 @@
   background-color: var(--color-light);
 }
 
-#results p {
+#results > p {
   font-family: 'Courier New', Courier, monospace;
   color: var(--color-light);
   max-width: 100%;

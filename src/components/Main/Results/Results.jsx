@@ -4,12 +4,20 @@ import PropTypes from "prop-types";
 import "./style.css";
 
 export default class Results extends React.PureComponent {
+  curriedSetSelectedResult(...args) {
+    const { setSelectedResult = () => {} } = this.props;
+
+    return () => {
+      setSelectedResult(...args);
+    };
+  }
+
   renderResults() {
     const { results = [] } = this.props;
 
     return results.map(result => {
       return (
-        <li key={`${result.name}${result.symbol}`}>
+        <li key={`${result.name}${result.symbol}`} onClick={this.curriedSetSelectedResult({ name: result.name, symbol: result.symbol })}>
           <p>{result.name}</p>
           <p>{result.symbol}</p>
         </li>
@@ -35,5 +43,6 @@ export default class Results extends React.PureComponent {
 }
 
 Results.propTypes = {
-  results: PropTypes.array
+  results: PropTypes.array,
+  setSelectedResult: PropTypes.func
 };
