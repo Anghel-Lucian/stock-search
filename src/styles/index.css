@@ -1,3 +1,11 @@
+:root {
+  --main-color: #08061c;
+  --main-color-light: #16112a;
+  --secondary-color: #00ea9b;
+  --light-color: #ffffff;
+  --medium-color: #9a98a4;
+}
+
 html,
 body,
 #root { 
