@@ -38,7 +38,5 @@ export async function getQuotes(symbol = "", from = TIMESTAMP_PAST, to = TIMESTA
     return [];
   }
 
-  console.log(data);
-
   return data;
 }

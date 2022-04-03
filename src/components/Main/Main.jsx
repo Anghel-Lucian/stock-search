@@ -20,7 +20,7 @@ export default class Main extends React.PureComponent {
     return (
       <main>
         <Results setSelectedResult={this.setSelectedResult} setResults={setResults} results={results} />
-        <Graph setSelectedResult={this.setSelectedResult} getQuotes={getQuotes} companyName={selectedResult.name} symbol={selectedResult.symbol} />
+        {selectedResult.symbol ? <Graph setSelectedResult={this.setSelectedResult} getQuotes={getQuotes} companyName={selectedResult.name} symbol={selectedResult.symbol} /> : null}
       </main>
     );
   }

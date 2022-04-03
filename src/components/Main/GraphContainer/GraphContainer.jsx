@@ -6,28 +6,33 @@ import "./style.css";
 import Graph from "./Graph/Graph";
 
 export default class GraphContainer extends React.PureComponent {
-  state = { requestStatus: "idle", quotes: [], showAverage: false };
+  state = { requestStatus: "idle", quotes: [], showAverage: false, from: 0, to: 0 };
 
-  async componentDidUpdate() {
-    const { symbol = "", getQuotes = () => {}, setSelectedResult = () => {} } = this.props;
-
-    if(symbol.trim().length === 0) return;
+  async componentDidMount() {
+    const { symbol = "", getQuotes = () => {} } = this.props;
 
     this.setState({ requestStatus: "loading" });
-    setSelectedResult({});
 
-    const quotes = await getQuotes(symbol);
+    const quotesNew = await getQuotes(symbol);
 
-    if(quotes.length === 0) {
+    if(quotesNew.length === 0) {
       this.setState({ requestStatus: "error" });
       return;
     }
 
-    this.setState({ quotes, requestStatus: "success" });
+    this.setState({ quotes: quotesNew, requestStatus: "success" });
   }
 
+  handleOnChange = (e) => {
+    const { name, value } = e.target;
+
+    this.setState({
+      [name]: value
+    });
+  };
+
   renderContent() {
-    const { requestStatus, quotes, showAverage } = this.state;
+    const { requestStatus, quotes, showAverage, from, to } = this.state;
 
     switch (requestStatus) {
       case "loading": {
@@ -44,10 +49,10 @@ export default class GraphContainer extends React.PureComponent {
                 Show average:
                 <input type="checkbox" onClick={this.setShowAverage} value={showAverage} />
               </label>
-              <form>
-                <input type="date" />
-                <input type="date" />
-                <button type="submit">Set filters</button>
+              <form onSubmit={this.setInterval}>
+                <input required type="date" name="from" value={from} max={to} onChange={this.handleOnChange} />
+                <input required type="date" name="to" value={to} onChange={this.handleOnChange} />
+                <button type="submit">Set interval</button>
               </form>
             </div>
             <Graph quotes={quotes} showAverage={showAverage} />
@@ -59,6 +64,19 @@ export default class GraphContainer extends React.PureComponent {
 
   setShowAverage = () => {
     this.setState((state) => ({ showAverage: !state.showAverage }));
+  };
+
+  setInterval = async (e) => {
+    e.preventDefault();
+    const { getQuotes = () => {}, symbol } = this.props;
+    const { from, to } = this.state;
+  
+    const timestampFrom = new Date(from).getTime() / 1000;
+    const timestampTo = new Date(to).getTime() / 1000;
+
+    const quotes = await getQuotes(symbol, timestampFrom, timestampTo);
+
+    this.setState({ quotes });
   };
 
   render() {
