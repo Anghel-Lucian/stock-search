@@ -1,11 +1,12 @@
 #results {
-  background-color: var(--color-main-light);
+  background-color: var(--color-main);
   flex: 1;
   max-height: 400px;
   overflow-y: scroll;
   border-radius: 8px;
   position: absolute;
   width: 80%;
+  z-index: 10;
 }
 
 #results ul {

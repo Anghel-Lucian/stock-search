@@ -6,7 +6,7 @@ import "./style.css";
 import Graph from "./Graph/Graph";
 
 export default class GraphContainer extends React.PureComponent {
-  state = { requestStatus: "idle", quotes: [] };
+  state = { requestStatus: "idle", quotes: [], showAverage: false };
 
   async componentDidUpdate() {
     const { symbol = "", getQuotes = () => {}, setSelectedResult = () => {} } = this.props;
@@ -27,7 +27,7 @@ export default class GraphContainer extends React.PureComponent {
   }
 
   renderContent() {
-    const { requestStatus, quotes } = this.state;
+    const { requestStatus, quotes, showAverage } = this.state;
 
     switch (requestStatus) {
       case "loading": {
@@ -37,10 +37,24 @@ export default class GraphContainer extends React.PureComponent {
         return <div className="graph__error-message"><p>Oops! We hit a snag. Please try again.</p></div>;
       }
       case "success": {
-        return <Graph quotes={quotes} />;
+        return (
+          <>
+            <div className="graph-container__options">
+              <label>
+                Show average:
+                <input type="checkbox" onClick={this.setShowAverage} value={showAverage} />
+              </label>
+            </div>
+            <Graph quotes={quotes} showAverage={showAverage} />
+          </>
+        );
       }
     }
   }
+
+  setShowAverage = () => {
+    this.setState((state) => ({ showAverage: !state.showAverage }));
+  };
 
   render() {
     return (

@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border-radius: 8px;
   padding: 30px 20px;
 }
@@ -12,3 +13,20 @@
   color: var(--color-light);
   font-family: 'Courier New', Courier, monospace;
 }
+
+#graph-container .graph-container__options {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+#graph-container .graph-container__options label {
+  display: flex;
+  align-items: center;  
+  color: var(--color-light);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#graph-container .graph-container__options label input {
+  margin-bottom: 6px;
+}
+

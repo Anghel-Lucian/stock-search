@@ -3,15 +3,37 @@
   height: 100%;
   display: flex;
   border-width: 0px 0px 1px 1px;
-  border-color: black;
+  border-color: var(--color-medium);
   border-style: solid;
   align-items: flex-end;
+  overflow-x: scroll;
+  position: relative;
 }
 
 #graph li {
   flex: 1 0 1%;
   list-style: none;
   margin: 0px 10px;
-  background-color: gray;
-  min-height: 10px;
+  background-color: var(--color-secondary);
+  min-height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#graph li span {
+  position: absolute;
+  font-size: 0.65rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  max-height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#graph .graph__average-line {
+  height: 3px;
+  background-color: var(--color-dark);
+  width: 100%;
+  position: absolute;
 }
