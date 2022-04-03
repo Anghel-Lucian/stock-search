@@ -1,4 +1,4 @@
-const API_KEY = "c94178aad3icjtmcaaf0";
+const API_KEY = "sandbox_c94178aad3icjtmcaafg";
 const API_URL = "https://finnhub.io/api/v1";
 const API_URL_SEARCH = `${API_URL}/search?token=${API_KEY}`;
 const API_URL_CANDLE = `${API_URL}/stock/candle?token=${API_KEY}`;
@@ -37,6 +37,8 @@ export async function getQuotes(symbol = "", from = TIMESTAMP_PAST, to = TIMESTA
     console.log("===GET QUOTES ERROR===", error);
     return [];
   }
+
+  console.log(data);
 
   return data;
 }

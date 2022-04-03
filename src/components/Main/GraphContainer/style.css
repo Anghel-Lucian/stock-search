@@ -1,0 +1,13 @@
+#graph {
+  background-color: var(--color-main-light);
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+#graph .graph__error-message {
+  color: var(--color-light);
+  font-family: 'Courier New', Courier, monospace;
+}

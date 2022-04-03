@@ -20,7 +20,7 @@ export default class App extends React.PureComponent {
 		return (
 			<div id="app">
 				<Components.Searchbar getCompanies={libs.getCompanies} setResults={this.setResults} />
-				<Components.Main results={results} setResults={this.setResults} />
+				<Components.Main getQuotes={libs.getQuotes} results={results} setResults={this.setResults} />
 			</div>
 		);
 	}
