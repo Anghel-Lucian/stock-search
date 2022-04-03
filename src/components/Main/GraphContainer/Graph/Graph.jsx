@@ -53,7 +53,7 @@ export default class Graph extends React.PureComponent {
 
     const average = sum / quotes.length;
 
-    return <div className="graph__average-line" style={{ bottom: `${((average - minNumber) / (maxNumber - minNumber)) * this.state.graphHeight}px` }} />;
+    return <div className="graph__average-line" style={{ bottom: `${((average - minNumber) / (maxNumber - minNumber)) * this.state.graphHeight}px` }}><span>{average.toFixed(2)}</span></div>;
   }
 
   render() {

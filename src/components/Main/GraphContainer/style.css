@@ -17,6 +17,8 @@
 #graph-container .graph-container__options {
   margin-bottom: 15px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #graph-container .graph-container__options label {
@@ -28,5 +30,32 @@
 
 #graph-container .graph-container__options label input {
   margin-bottom: 6px;
+}
+
+#graph-container .graph-container__options form {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+#graph-container .graph-container__options form button {
+  background-color: var(--color-medium);
+  border: 1px solid var(--color-medium);
+  border-radius: 4px;
+  color: var(--color-light);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#graph-container .graph-container__options form button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#graph-container .graph-container__options form input:nth-child(2) {
+  margin: 0px 5px;
 }
 

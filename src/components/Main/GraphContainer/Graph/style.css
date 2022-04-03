@@ -32,8 +32,18 @@
 }
 
 #graph .graph__average-line {
-  height: 3px;
+  height: 12px;
   background-color: var(--color-dark);
   width: 100%;
   position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+#graph .graph__average-line span {
+  font-size: 0.7rem;
+  color: var(--color-light);
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 2px;
+  margin-left: 10px;
 }

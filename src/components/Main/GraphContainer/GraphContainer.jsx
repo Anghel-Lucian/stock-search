@@ -44,6 +44,11 @@ export default class GraphContainer extends React.PureComponent {
                 Show average:
                 <input type="checkbox" onClick={this.setShowAverage} value={showAverage} />
               </label>
+              <form>
+                <input type="date" />
+                <input type="date" />
+                <button type="submit">Set filters</button>
+              </form>
             </div>
             <Graph quotes={quotes} showAverage={showAverage} />
           </>
