@@ -7,6 +7,7 @@
   position: absolute;
   width: 80%;
   z-index: 10;
+  background-color: var(--color-medium);
 }
 
 #results ul {
@@ -15,14 +16,14 @@
 
 #results ul li {
   margin: 8px 0px;
-  background-color: var(--color-medium);
+  background-color: var(--color-main);
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   border-radius: 8px;
-  color: var(--color-main);
+  color: var(--color-light);
   transition: background-color 0.2s;
 }
 
@@ -36,7 +37,7 @@
 
 #results ul li:hover {
   cursor: pointer;
-  background-color: var(--color-light);
+  background-color: var(--color-main-light);
 }
 
 #results > p {
