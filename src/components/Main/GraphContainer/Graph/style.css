@@ -1,0 +1,17 @@
+#graph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-width: 0px 0px 1px 1px;
+  border-color: black;
+  border-style: solid;
+  align-items: flex-end;
+}
+
+#graph li {
+  flex: 1 0 1%;
+  list-style: none;
+  margin: 0px 10px;
+  background-color: gray;
+  min-height: 10px;
+}

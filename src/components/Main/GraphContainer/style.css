@@ -1,13 +1,14 @@
-#graph {
+#graph-container {
   background-color: var(--color-main-light);
   width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  padding: 30px 20px;
 }
 
-#graph .graph__error-message {
+#graph-container .graph__error-message {
   color: var(--color-light);
   font-family: 'Courier New', Courier, monospace;
 }

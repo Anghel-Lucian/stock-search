@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import "./style.css";
 
+import Graph from "./Graph/Graph";
+
 export default class GraphContainer extends React.PureComponent {
   state = { requestStatus: "idle", quotes: [] };
 
@@ -21,24 +23,28 @@ export default class GraphContainer extends React.PureComponent {
       return;
     }
 
-    this.setState({ quotes, requestStatus: "idle" });
+    this.setState({ quotes, requestStatus: "success" });
   }
 
   renderContent() {
     const { requestStatus, quotes } = this.state;
 
-    if(requestStatus === "loading") {
-      return <div className="loader loader--big" />;
-    } else if(requestStatus === "error") {
-      return <div className="graph__error-message"><p>Oops! We hit a snag. Please try again.</p></div>;
+    switch (requestStatus) {
+      case "loading": {
+        return <div className="loader loader--big" />;
+      }
+      case "error": {
+        return <div className="graph__error-message"><p>Oops! We hit a snag. Please try again.</p></div>;
+      }
+      case "success": {
+        return <Graph quotes={quotes} />;
+      }
     }
-
-    return <div>{quotes[0]}</div>;
   }
 
   render() {
     return (
-      <div id="graph">
+      <div id="graph-container">
         {this.renderContent()}
       </div>
     );
